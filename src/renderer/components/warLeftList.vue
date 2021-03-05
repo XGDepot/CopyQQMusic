@@ -48,10 +48,7 @@
 </template>
 
 <script>
-// 例如：import '组件名称' from '组件路径';
-
 export default {
-// import引入的组件需要注入到对象中才能使用
   name: 'warLeftList',
   components: {},
   data () {
@@ -90,8 +87,9 @@ export default {
   max-width: 215px;
   height:calc(100vh - 95px);
   margin-top:22px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+  // overflow-y: auto;
+  -webkit-app-region: no-drag;
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -133,7 +131,9 @@ export default {
       color:rgb(139, 139, 139);
     }
   }
-  
+}
+.warLeftList:hover{
+  overflow-y: auto;
 }
 
 </style>
