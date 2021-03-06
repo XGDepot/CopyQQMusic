@@ -4,45 +4,61 @@
       <div class="war_logo">
         <img src="../assets/QQlogo.png" alt="QQMusic">
       </div>
-      <!-- 左侧列表 -->
-      <warLeftList></warLeftList>
+      <!-- 左侧列表组件 -->
+      <warLeftList @childFn="parentFn"></warLeftList>
     </div>
     <div class="war_right">
       <div class="myheader">
+        <!-- 头部菜单组件 -->
         <myHeader></myHeader>
       </div>
-      <div class="war_right_from"><!-- 右边展示区域 -->
-        <p><b>推荐</b></p>
-        <h2>Hi 尼古拉斯·赵四 今日为你打造</h2>
-        <ul>asdasdasdasda</ul>
-        <li>asdasdasd</li>
-        <li></li>
-        <li></li>
-        <li>asdasdasd</li>
-        <li></li>
-        <li></li>
-        <li>asdasdasd</li>
-        <li></li>
-        <li></li>
-        <li>asdasdasdasd</li>
+      <div class="war_right_show">
+        <!-- 右边中间位置展示区域 -->
+        <recommend v-if="showWin == 'a1'"></recommend>
+        <musicHall v-if="showWin == 'a2'"></musicHall>
+        <videoShow v-if="showWin == 'a3'"></videoShow>
+        <radioStation v-if="showWin == 'a4'"></radioStation>
       </div>
+      <!-- 底部播放组件 -->
       <div class="rightBotPlay">
-        底部播放信息
+        <bottomPlay></bottomPlay>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import myHeader from '../components/LandingPage/myHeader'
-  import warLeftList from '../components/warLeftList'
+  import myHeader from '../components/header/myHeader' // 头部菜单
+  import warLeftList from '../components/warLeftList' // 左部导航菜单
+  import bottomPlay from '../components/bottomPlay' // 底部播放组件
+  // 在线音乐
+  import recommend from '../components/onLineMusic/recommend' // 推荐
+  import musicHall from '../components/onLineMusic/musicHall' // 音乐馆
+  import videoShow from '../components/onLineMusic/videoShow' // 视频
+  import radioStation from '../components/onLineMusic/radioStation' // 电台
 
   export default {
     name: 'landing-page',
-    components: { myHeader,warLeftList },
+    components: {
+      myHeader,
+      warLeftList,
+      bottomPlay,
+      recommend,
+      musicHall,
+      videoShow,
+      radioStation
+    },
+    data () {
+      return {
+        showWin:'a3'   // 控制中间展示模块
+      }
+    },
     methods: {
       open(n){
         alert(n)
+      },
+      parentFn(payload) { // 子组件传过来的值
+        this.showWin = payload;
       }
     }
   }
@@ -86,22 +102,13 @@
         height: 70px;
         z-index: 100;
       }
-      .war_right_from{
+      .war_right_show{
         width:calc(100% - 40px);
         // height:200px;
         height:calc(100% - 140px);
         // background-color: rgb(240, 226, 41);
         overflow-y: auto;
         padding-left: 40px;
-        p{
-          width: 100%;
-          height: 90px;
-          line-height: 90px;
-          // background-color: cadetblue;
-          font-size: 35px;
-          font-family: 隶书;
-          font-weight:900;
-        }
         &::-webkit-scrollbar {
           width: 8px;
         }
@@ -125,5 +132,5 @@
       }
     }
   }
-  
+  // #31c27c 绿色
 </style>

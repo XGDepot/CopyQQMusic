@@ -16,15 +16,15 @@
   *{
     margin: 0;
     padding: 0;
-    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
   }
-  ul,li{ padding:0;margin:0;list-style:none}
+  ul,li{ padding:0;margin:0;list-style:none;}
   table, caption, tbody, tfoot, thead, tr, th, td {
       margin: 0;
       padding: 0;
       border: 0;
       outline: 0;
-      font-size: 100%;
+      /* font-size: 100%; */
       /*background: transparent;*/
   }
   table {
