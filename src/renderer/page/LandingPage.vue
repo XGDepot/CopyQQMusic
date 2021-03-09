@@ -50,7 +50,7 @@
     },
     data () {
       return {
-        showWin:'a3'   // 控制中间展示模块
+        showWin:'a1'   // 控制中间展示模块
       }
     },
     methods: {
@@ -103,12 +103,13 @@
         z-index: 100;
       }
       .war_right_show{
-        width:calc(100% - 40px);
+        width:calc(100% - 75px);
         // height:200px;
         height:calc(100% - 140px);
         // background-color: rgb(240, 226, 41);
         overflow-y: auto;
         padding-left: 40px;
+        padding-right:35px;
         &::-webkit-scrollbar {
           width: 8px;
         }
@@ -125,8 +126,8 @@
       }
       .rightBotPlay{
         width: calc(100% - 210px);
-        height: 70px;
-        background-color: rgb(72, 115, 236);
+        height: 75px;
+        // background-color: rgb(72, 115, 236);
         position: absolute;
         bottom: 0;
       }

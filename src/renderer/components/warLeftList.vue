@@ -1,10 +1,7 @@
 <!-- 左侧列表 -->
 <!-- 
   暂存未解决问题
-      1.点击显示背景渐变色   XXXXXX
-      2.设置icon图标，选中前后效果   XXXX
-      3.创建歌单效果，显示隐藏菜单  XXXXX
-      4.收藏的歌单显示隐藏效果
+      
  -->
 <template>
   <div class='warLeftList'>

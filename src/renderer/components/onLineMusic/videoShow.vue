@@ -1,15 +1,12 @@
 <!-- 在线音乐/视频模块 -->
 <template>
   <div class='videoShow'>
-    <span>在线音乐/视频模块</span>
+    <div class="topText">在线音乐/视频模块</div>
   </div>
 </template>
 
 <script>
-// 例如：import '组件名称' from '组件路径';
-
 export default {
-// import引入的组件需要注入到对象中才能使用
   name: 'videoShow',
   components: {},
   data () {
@@ -43,14 +40,5 @@ export default {
 }
 </script>
 <style lang='less' scoped>
-//@import url(); 引入公共css类
-span{
-  width: 100%;
-  height: 90px;
-  line-height: 90px;
-  // background-color: cadetblue;
-  font-size: 35px;
-  font-family:黑体;
-  font-weight:900;
-}
+@import '../../assets/publicCss/publicStyle.css';
 </style>
