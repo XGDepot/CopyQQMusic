@@ -9,15 +9,16 @@
     </div>
     <div class="war_right">
       <div class="myheader">
-        <!-- 头部菜单组件 -->
-        <myHeader></myHeader>
+        <myHeader></myHeader><!-- 头部菜单组件 -->
       </div>
       <div class="war_right_show">
-        <!-- 右边中间位置展示区域 -->
-        <recommend v-if="showWin == 'a1'"></recommend>
-        <musicHall v-if="showWin == 'a2'"></musicHall>
-        <videoShow v-if="showWin == 'a3'"></videoShow>
-        <radioStation v-if="showWin == 'a4'"></radioStation>
+      <!-- 右边中间位置展示区域 -->
+        <recommend v-if="showWin == 'a1'"></recommend> <!-- 推荐 -->
+        <musicHall v-if="showWin == 'a2'"></musicHall> <!-- 音乐馆 -->
+        <videoShow v-if="showWin == 'a3'"></videoShow> <!-- 视频 -->
+        <radioStation v-if="showWin == 'a4'"></radioStation>  <!-- 电台 -->
+        <!-- 我的音乐 -->
+        <myMusic v-if="showWin == 'b1'"></myMusic> <!-- 我喜欢 -->
       </div>
       <!-- 底部播放组件 -->
       <div class="rightBotPlay">
@@ -37,6 +38,9 @@
   import videoShow from '../components/onLineMusic/videoShow' // 视频
   import radioStation from '../components/onLineMusic/radioStation' // 电台
 
+  // 我的音乐
+  import myMusic from '../components/myMusic/myMusic' // 我喜欢
+
   export default {
     name: 'landing-page',
     components: {
@@ -46,7 +50,8 @@
       recommend,
       musicHall,
       videoShow,
-      radioStation
+      radioStation,
+      myMusic
     },
     data () {
       return {

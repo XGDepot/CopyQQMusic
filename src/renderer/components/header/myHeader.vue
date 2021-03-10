@@ -1,49 +1,47 @@
 <!-- header自定义头部 -->
 <!-- 
   暂存问题:
-    1.搜索框聚焦展示,
-    2.图标引入和图标间距
-    3.下拉展示
+    1.搜索框聚焦展示,   XXXX
+    2.图标引入和图标间距   XXXX
+    3.下拉展示  
     4.点击头像展示
     5.皮肤
     6.设置
-    7.缩小  全屏  关闭功能
+    7.缩小  全屏  关闭功能  XXXX
     8.返回上一步和下一步按钮
  -->
 <template>
   <div class='myHeader'>
     <div class="headerLeft">
-      <i class="el-icon-arrow-left"></i>
-      <i class="el-icon-arrow-right"></i>
-      <el-input v-model="input" placeholder="搜索音乐">
-      </el-input>
-      <i class="el-icon-headset"></i>
+      <i class="el-icon-arrow-left" @click="closeWin()"></i>
+      <i class="el-icon-arrow-right" @click="closeWin()"></i>
+      <el-input v-model="input" placeholder="搜索音乐"></el-input>
+      <i class="el-icon-headset" @click="closeWin()"></i>
     </div>
     <div class="headerRight">
       <div class="headerRightCenter">
-        <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+        <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+          @click="openNews()" style="cursor:pointer;-webkit-app-region: no-drag;"></el-avatar>
         <span>尼古拉斯·赵四</span>
         <img src="../../assets/iconPng/svip5@2x.png" alt="" style="width:25px;height:25px;margin-left:10px;">
         <img src="../../assets/iconPng/sui4@2x.png" alt="" style="width:25px;height:25px;margin-left:5px;">
         <img src="../../assets/iconPng/drxx14.png" alt="" style="width:20px;height:20px;margin-left:5px;">
-        <i class="el-icon-arrow-down"></i>
-        <i class="iconfont iconpifu"></i><!-- 皮肤 -->
-        <i class="iconfont iconcaidan"></i> <!-- 更多 -->
+        <i class="el-icon-arrow-down" @click="openNews()"></i>
+        <i class="iconfont iconpifu" @click="openNews()" ></i><!-- 皮肤 -->
+        <i class="iconfont iconcaidan" @click="openNews()" ></i> <!-- 更多 -->
         <el-divider direction="vertical"></el-divider>
-        <i class="iconfont iconSmallWindow"></i> <!-- 最大化 -->
-        <i class="iconfont iconsuoxiao"></i> <!-- 最大化 -->
-        <i class="iconfont iconzuidahua"></i> <!-- 最大化 -->
-        <i class="el-icon-close"></i>
+        <i class="iconfont iconSmallWindow" @click="openNews()" ></i> <!-- 简约化窗口 -->
+        <i class="iconfont iconsuoxiao" @click="minimizeWin()"></i> <!-- 最小化 -->
+        <i class="iconfont iconzuidahua" @click="maximizeWin()"></i> <!-- 最大化 -->
+        <i class="el-icon-close" @click="closeWin()"></i>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// 例如：import '组件名称' from '组件路径';
-
+import { remote } from 'electron';
 export default {
-// import引入的组件需要注入到对象中才能使用
   name: 'myHeader',
   components: {},
   data () {
@@ -51,15 +49,32 @@ export default {
       input: ''
     }
   },
-  // 监听属性 类似于data概念
   computed: {},
-  // 监控data中的数据变化
   watch: {},
-  // 方法集合
   methods: {
-    open(n){
-      alert(n)
+    openNews(){
+      this.$confirm('功能正在后续开发中...', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+        }).catch(() => {
+      });
     },
+    minimizeWin(){
+      remote.getCurrentWindow().minimize(); // 窗口最小化
+    },
+    maximizeWin(){
+      const win=remote.getCurrentWindow();
+      if(win.isMaximized()){ // 判断 窗口是否已最大化 
+        win.restore();// 恢复原窗口大小
+      }else{
+         win.maximize();  //最大化窗口
+      }
+    },
+    closeWin(){
+      remote.getCurrentWindow().close(); // 关闭窗口，也结束了所有进程
+    }
   },
   // 生命周期 - 创建完成（可以访问当前this实例）
   created () {
@@ -79,10 +94,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-/* //@import url(); 引入公共css类 */
 .myHeader{
-  // z-index: 102;
-  // background-color: rgb(77, 177, 243);
   -webkit-app-region: drag;
   /* -webkit-app-region: no-drag; */
   display: flex;
@@ -92,12 +104,17 @@ export default {
     height: 70px;
     display: flex;
     align-items:center;
-    // background-color: red;
     -webkit-app-region: no-drag;
+    i{
+      cursor:pointer;
+      -webkit-app-region: no-drag;
+    }
+    i:hover{
+      color: #31c27c;
+    }
     .el-icon-arrow-left{
       line-height: 70px;
       margin-left:40px;
-      // z-index: 110;
     }
     .el-icon-arrow-right{
       margin-left:16px;
@@ -146,7 +163,16 @@ export default {
         height: 30px;
         margin-right: 10px;
       }
+      i:hover{
+        color: #31c27c;
+      }
+      .iconSmallWindow:hover{
+        color: #31c27c;
+        cursor:pointer;
+      }
       i{
+        -webkit-app-region: no-drag;
+        cursor:pointer;
         font-size: 19px;
         margin-right:10px;
       }

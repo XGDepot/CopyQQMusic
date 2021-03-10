@@ -9,7 +9,7 @@
         <div class="cubeMax">
           <div class="leftImg">
             <div class="maskmax">
-              <span><i class="el-icon-video-play" @click="open('asdasdasd')"></i></span>
+              <span><i class="el-icon-video-play" @click="open()"></i></span>
             </div>
           </div>
           <div class="cubRightTxt">
@@ -28,9 +28,8 @@
       <!-- 后边两个 -->
       <div class="cubeBox">
         <div class="cubeimgHover">
-          <!-- :style="{backgroundImage:'url('+i+')'}" -->
           <div class="mask">
-            <span><i class="el-icon-video-play" @click="open('asdasdasd')"></i></span>
+            <span><i class="el-icon-video-play" @click="open()"></i></span>
           </div>
         </div>
         <p>每日30首</p>
@@ -38,7 +37,7 @@
       <div class="cubeBox">
         <div class="cubeimgHover">
           <div class="mask">
-            <span><i class="el-icon-video-play" @click="open('asdasdasd')"></i></span>
+            <span><i class="el-icon-video-play" @click="open()"></i></span>
           </div>
         </div>
         <p>新歌推荐</p>
@@ -120,11 +119,6 @@ export default {
           backgroundRepeat: "no-repeat",
         }
       }]
-      // bagImg:[
-      //   "https://image.weilanwl.com/img/4x3-1.jpg",
-      //   "https://image.weilanwl.com/img/4x3-2.jpg",
-      //   "https://image.weilanwl.com/img/4x3-3.jpg",
-      // ]
     }
   },
   // 监听属性 类似于data概念
@@ -133,8 +127,8 @@ export default {
   watch: {},
   // 方法集合
   methods: {
-    open(n){
-      alert(n)
+    open(){
+      alert('弹框测试001122')
     }
   },
   // 生命周期 - 创建完成（可以访问当前this实例）
