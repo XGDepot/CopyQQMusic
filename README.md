@@ -2,6 +2,16 @@
 
 > An electron-vue project
 
+> 纯前端开发QQ音乐客户端,暂时还原30%,持续更新...
+#### Build Setup
+
+``` bash
+> electron-vue框架开发，UI框架Element UI。
+
+> electron 版本12.0.0  Vue版本2.9.6
+
+```
+
 #### Build Setup
 
 ``` bash
